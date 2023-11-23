@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductEntity } from './product.entity';
+import { ProductEntity } from '../entity/product.entity';
 
 @Module({
   imports: [
@@ -16,7 +16,7 @@ import { ProductEntity } from './product.entity';
         username: configService.getOrThrow('POSTGRES_USER'),
         password: configService.getOrThrow('POSTGRES_PASSWORD'),
         database: configService.getOrThrow('POSTGRES_DATABASE'),
-        entities: [ProductEntity],
+        autoLoadEntitiesentities: true,
         synchronize: true
       }),
       inject: [ConfigService],
