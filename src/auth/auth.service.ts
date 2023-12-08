@@ -5,5 +5,10 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class AuthService {
-    constructor(@InjectRepository(UserEntity) private readonly authRepo: Repository<UserEntity>){}
+    constructor(@InjectRepository(UserEntity) private readonly authRepo: Repository<UserEntity>) { }
+    
+
+    async signUp(payload) {
+        
+    }
 }
