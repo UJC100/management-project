@@ -26,10 +26,11 @@ export class SignUpDto {
   @IsString()
   @MinLength(6)
   @MaxLength(16)
-  @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[^\da-zA]).{8,}$/, {message: 'password must contain atleast One Uppercase, One number, and One special key'})
+  @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[^\da-zA]).{8,}$/, {
+    message:
+      'password must contain atleast One Uppercase, One number, and One special key',
+  })
   password: string;
-    
-
 }
 
 

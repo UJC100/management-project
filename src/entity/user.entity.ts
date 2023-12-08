@@ -1,22 +1,20 @@
-import { IsNotEmpty, IsOptional, IsString, MinLength } from "class-validator";
+
 import { Roles } from "src/enum/role";
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity } from "typeorm";
+import {BaseEntity} from "./base.entity"
 
 
 
-@Entity()
+@Entity('User')
 export class UserEntity extends BaseEntity {
- 
   @Column()
   firstName: string;
-
 
   @Column()
   lastName: string;
 
-  
-  @Column()
-  middleName?: string;
+  @Column({nullable: true})
+  middleName: string;
 
   @Column({
     unique: true,

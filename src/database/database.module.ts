@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from '../entity/user.entity';
+import { BaseEntity } from 'src/entity/base.entity';
 
 @Module({
   imports: [
@@ -13,8 +14,9 @@ import { UserEntity } from '../entity/user.entity';
         username: configService.getOrThrow('POSTGRES_USER'),
         password: configService.getOrThrow('POSTGRES_PASSWORD'),
         database: configService.getOrThrow('POSTGRES_DATABASE'),
-        autoLoadEntitiesentities: true,
-        synchronize: true
+        autoLoadEntities: true,
+        synchronize:configService.getOrThrow('SYNCHRONIZE'),
+        // logging:true
       }),
       inject: [ConfigService],
     }),
